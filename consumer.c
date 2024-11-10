@@ -62,7 +62,7 @@ void consumer() {
 }
 
 int main() {
-    key_t key = ftok("shmfile", 65);  
+    key_t key = 1234;  
 
     shm_id = shmget(key, sizeof(SharedBuffer), 0666); 
        if (shm_id == -1) {
