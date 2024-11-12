@@ -25,7 +25,8 @@ SharedBuffer *shm_ptr;
 struct sembuf sem_op;
 
 void init_semaphores() {
-    semid = semget(IPC_PRIVATE, 3, IPC_CREAT | 0666);
+    key_t key = 1234;
+    semid = semget(key, 3, IPC_CREAT | 0666);
     semctl(semid, 0, SETVAL, 1);  
     semctl(semid, 1, SETVAL, BUFFER_SIZE);  
     semctl(semid, 2, SETVAL, 0);  
